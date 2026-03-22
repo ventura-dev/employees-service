@@ -38,4 +38,6 @@ public interface IEmployeeMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     void updateEmployeeFromRequest(EmployeeRequest employeeRequest, @MappingTarget Employee employee);
+
+
 }

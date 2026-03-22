@@ -19,11 +19,5 @@ public interface EmployeeRepository extends JpaRepository<Employee,Long> {
      */
     List<Employee> getEmployeeByFirstName(String firstName);
 
-    /**
-     * Gets employee by id.
-     *
-     * @param id the id
-     * @return the employee by id
-     */
-    Employee getEmployeeById(Long id);
+
 }
