@@ -188,7 +188,6 @@ class EmployeeControllerTest {
         request.setSecondName("Luis");
         request.setLastNamePaternal("Almazan");
         request.setLastNameMaternal("Hernandez");
-        request.setAge(30);
         request.setSex(Sex.M);
         request.setBirthDate(LocalDate.of(1994, 5, 10));
         request.setPosition("Backend Developer");

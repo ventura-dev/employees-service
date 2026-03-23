@@ -5,6 +5,9 @@ import com.invex.employees.dto.EmployeeResponse;
 import com.invex.employees.model.Employee;
 import org.mapstruct.*;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 /**
  * The interface Employee mapper.
  */
@@ -17,6 +20,7 @@ public interface IEmployeeMapper {
      * @param employeeRequest the employee request
      * @return the employee
      */
+    @Mapping(target = "age", expression = "java(calculateAge(employeeRequest.getBirthDate()))")
     Employee toEntity(EmployeeRequest employeeRequest);
 
     /**
@@ -37,7 +41,15 @@ public interface IEmployeeMapper {
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
+    @Mapping(target = "age", expression = "java(calculateAge(employeeRequest.getBirthDate()))")
     void updateEmployeeFromRequest(EmployeeRequest employeeRequest, @MappingTarget Employee employee);
 
 
+
+    default Integer calculateAge(LocalDate birthDate) {
+        if (birthDate == null) {
+            return null;
+        }
+        return Period.between(birthDate, LocalDate.now()).getYears();
+    }
 }

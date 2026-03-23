@@ -27,7 +27,6 @@ class EmployeeMapperTest {
         request.setSecondName("Luis");
         request.setLastNamePaternal("Almazan");
         request.setLastNameMaternal("Hernandez");
-        request.setAge(30);
         request.setSex(Sex.M);
         request.setBirthDate(LocalDate.of(1995, 1, 1));
         request.setPosition("Backend Developer");
@@ -40,7 +39,7 @@ class EmployeeMapperTest {
         assertEquals("Luis", result.getSecondName());
         assertEquals("Almazan", result.getLastNamePaternal());
         assertEquals("Hernandez", result.getLastNameMaternal());
-        assertEquals(30, result.getAge());
+        assertEquals(31, result.getAge());
         assertEquals(Sex.M, result.getSex());
         assertEquals(LocalDate.of(1995, 1, 1), result.getBirthDate());
         assertEquals("Backend Developer", result.getPosition());
@@ -83,7 +82,6 @@ class EmployeeMapperTest {
         EmployeeRequest request = new EmployeeRequest();
         request.setFirstName("Updated Jorge");
         request.setPosition("Senior Backend Developer");
-        request.setAge(null);
 
         Employee employee = new Employee();
         employee.setId(1L);
@@ -104,7 +102,6 @@ class EmployeeMapperTest {
         assertEquals("Updated Jorge", employee.getFirstName());
         assertEquals("Luis", employee.getSecondName());
         assertEquals("Almazan", employee.getLastNamePaternal());
-        assertEquals(30, employee.getAge());
         assertEquals("Senior Backend Developer", employee.getPosition());
         assertEquals(LocalDateTime.of(2026, 3, 21, 12, 0), employee.getCreatedAt());
     }
@@ -117,7 +114,6 @@ class EmployeeMapperTest {
         request.setSecondName("Luis");
         request.setLastNamePaternal("Almazan");
         request.setLastNameMaternal("Hernandez");
-        request.setAge(30);
         request.setSex(Sex.M);
         request.setBirthDate(LocalDate.of(1994, 5, 10));
         request.setPosition("Backend Developer");
@@ -143,7 +139,6 @@ class EmployeeMapperTest {
         assertEquals("Luis", employee.getSecondName());
         assertEquals("Almazan", employee.getLastNamePaternal());
         assertEquals("Hernandez", employee.getLastNameMaternal());
-        assertEquals(30, employee.getAge());
         assertEquals(Sex.M, employee.getSex());
         assertEquals(LocalDate.of(1994, 5, 10), employee.getBirthDate());
         assertEquals("Backend Developer", employee.getPosition());
