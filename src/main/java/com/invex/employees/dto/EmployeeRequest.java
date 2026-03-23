@@ -26,10 +26,6 @@ public class EmployeeRequest implements Serializable {
     @Size(max = 20, message = "Last name maternal must not exceed 50 characters")
     private String lastNameMaternal;
 
-    @Min(value = 0, message = "Age must be greater than or equal to 0")
-    @Max(value = 100, message = "Age must not exceed 100")
-    private Integer age;
-
     private Sex sex;
 
     @Past(message = "Birth date must be a past date")
