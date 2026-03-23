@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: employees-service
+
+
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3307/invex_db?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root123}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,mappings
+  endpoint:
+    health:
+      show-details: always
+      #show-details: never
+
+logging:
+  level:
+    com.invex.employees: INFO
